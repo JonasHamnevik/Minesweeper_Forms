@@ -41,15 +41,18 @@ namespace Minesweeper_Forms
         {
             int rownumber = buttons.GetUpperBound(0) + 1;
             int columnnumber = buttons.GetUpperBound(1) + 1;
+            int number = 1;
 
             for (int i = 0; i < rownumber; i++)
             {
                 for (int j = 0; j < columnnumber; j++)
                 {
                     buttons[i, j] = new Button(i, j);
+                    buttons[i, j].Text = Convert.ToString(number);
                     buttons[i, j].Location = new Point(j * 40, 50 + (i * 40));
                     buttons[i, j].MouseDown += new MouseEventHandler(button_MouseClick);
                     Controls.Add(buttons[i, j]);
+                    number++;
                 }
             }
         }
